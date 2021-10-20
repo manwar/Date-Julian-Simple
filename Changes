@@ -1,5 +1,8 @@
 Revision history for Date::Julian::Simple
 
+0.13  Wed Oct 20 09:00:00 2021
+      - Proposed fix for current JD.
+
 0.12  Thu Jun 25 01:15:00 2020
       - Check feb month days only when leap year.
 

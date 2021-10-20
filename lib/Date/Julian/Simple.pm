@@ -1,6 +1,6 @@
 package Date::Julian::Simple;
 
-$Date::Julian::Simple::VERSION   = '0.12';
+$Date::Julian::Simple::VERSION   = '0.13';
 $Date::Julian::Simple::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Date::Julian::Simple - Represents Julian date.
 
 =head1 VERSION
 
-Version 0.12
+Version 0.13
 
 =cut
 
@@ -84,10 +84,9 @@ sub BUILD {
         my $year  = $today->year + 1900;
         my $month = $today->mon + 1;
         my $day   = $today->mday;
-        my $date  = $self->from_gregorian($year, $month, $day);
-        $self->year($date->year);
-        $self->month($date->month);
-        $self->day($date->day);
+        $self->year($year);
+        $self->month($month);
+        $self->day($day);
     }
 }
 
