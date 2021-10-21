@@ -1,6 +1,6 @@
 package Date::Julian::Simple;
 
-$Date::Julian::Simple::VERSION   = '0.13';
+$Date::Julian::Simple::VERSION   = '0.14';
 $Date::Julian::Simple::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Date::Julian::Simple - Represents Julian date.
 
 =head1 VERSION
 
-Version 0.13
+Version 0.14
 
 =cut
 
@@ -29,6 +29,8 @@ use overload q{""} => 'as_string', fallback => 1;
 Represents the Julian date.
 
 =cut
+
+our $MJD = 2400000.5;
 
 our $JULIAN_MONTHS = [
     undef,
@@ -127,6 +129,18 @@ sub to_julian {
     return ((floor((365.25 * ($year + 4716))) + floor((30.6001 * ($month + 1))) + $day) - 1524.5);
 }
 
+=head2 to_modified_julian()
+
+Returns modified julian day equivalent of the Julian date.
+
+=cut
+
+sub to_modified_julian {
+    my ($self, $year, $month, $day) = @_;
+
+    return $self->to_julian($year, $month, $day) - $MJD;
+}
+
 =head2 from_julian($julian_day)
 
 Returns Julian date as an object of type L<Date::Julian::Simple> equivalent of the
@@ -156,6 +170,19 @@ sub from_julian {
     }
 
     return Date::Julian::Simple->new({ year => $year, month => $month, day => $day });
+}
+
+=head2 from_modified_julian($modified_julian_day)
+
+Returns Julian date as an object of type L<Date::Julian::Simple> equivalent of the
+C<$modified_julian_day>.
+
+=cut
+
+sub from_modified_julian {
+    my ($self, $modified_julian_day) = @_;
+
+    return $self->from_julian($modified_julian_day + $MJD);
 }
 
 =head2 to_gregorian()
