@@ -21,4 +21,18 @@ is($jdate->year, 2018);
 is($jdate->month, 1);
 is($jdate->day, 9);
 
+is($date->is_leap_year(1800), 1);
+is($date->is_leap_year(2000), 1);
+is($date->is_leap_year(2021), 0);
+
+is($date->days_in_year(1800), 366);
+is($date->days_in_year(2000), 366);
+is($date->days_in_year(2021), 365);
+
+is($date->days_in_month_year(02,1800), 29);
+is($date->days_in_month_year(02,2000), 29);
+is($date->days_in_month_year(02,2021), 28);
+is($date->days_in_month_year(03,2021), 31);
+
+
 done_testing();

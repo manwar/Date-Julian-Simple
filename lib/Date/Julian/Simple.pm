@@ -217,7 +217,7 @@ Returns 0 or 1 if the given Julian year C<$year> is a leap year or not.
 sub is_leap_year {
     my ($self, $year) = @_;
 
-    return (($year % 4) == (($year > 0) ? 0 : 3));
+    return (($year % 4) == (($year > 0) ? 0 : 3)) || 0;
 }
 
 sub days_in_year {
