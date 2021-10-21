@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 use 5.006;
-use Test::More tests => 10;
+use Test::More;
 use strict; use warnings;
 use Date::Julian::Simple;
 
@@ -33,6 +33,5 @@ is($date->days_in_month_year(02,1800), 29);
 is($date->days_in_month_year(02,2000), 29);
 is($date->days_in_month_year(02,2021), 28);
 is($date->days_in_month_year(03,2021), 31);
-
 
 done_testing();

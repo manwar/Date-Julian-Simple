@@ -1,5 +1,9 @@
 Revision history for Date::Julian::Simple
 
+0.15  Thu Oct 21 23:50:00 2021
+      - Changed is_leap_year to return 0 for non-leap year.
+        Thanks @lancw.
+
 0.14  Thu Oct 21 23:30:00 2021
       - Added 2 new subroutines to_modified_julian()
         and from_modified_julian().
