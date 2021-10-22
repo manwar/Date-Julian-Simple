@@ -21,6 +21,10 @@ is($jdate->year, 2018);
 is($jdate->month, 1);
 is($jdate->day, 9);
 
+my $mjd = Date::Julian::Simple->new({ year => 2020, month => 11, day => 12 });
+is($mjd->from_modified_julian(59165), "12, November 2020");
+is($mjd->to_modified_julian, 59165);
+
 is($date->is_leap_year(1800), 1);
 is($date->is_leap_year(2000), 1);
 is($date->is_leap_year(2021), 0);
